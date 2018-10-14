@@ -5,16 +5,15 @@
 <script type="text/javascript">
 function generate() { 
 	var pass = ""; 
-//	var strong = 8; 
-	var dic = "abcdefghijklmnopqrstuvwxyz"; 
+	var arr = ['ba', 'be', 'bi', 'fra', 'est', 'for']
 	var int = "1234567890"
 
-	for (var i = 0; i < 6; i++) 
+	for (var i = 0; i < 3; i++) 
 		{ 
-		pass += dic.charAt(Math.floor(Math.random() * dic.length)); 
+		pass += arr[Math.floor(Math.random() * arr.length)];
 		} 
 
-	for (var i = 7; i <= 8; i++) 
+	for (var i = 4; i <= 5; i++) 
 		{ 
 		pass += int.charAt(Math.floor(Math.random() * int.length)); 
 		} 
