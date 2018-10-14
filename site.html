@@ -6,7 +6,7 @@
 </head> 
 <body style="text-align: center;"> 
 
-<button onclick="generate()">"Предложить пароль"</button> 
+<button onclick="generate()">Показать пароль</button> 
 <div id="random" style="font-size: 35px; color: red; "> 
 </div> 
 
@@ -58,7 +58,7 @@ return false;
 } 
 } 
 function msg () { 
-document.mailer.action = "mailto:Leshij-2005@yandex.ru" 
+document.mailer.action = document.forms.mailer.email.value
 mailtoandSubject = (('?Subject=' + document.mailer.Subject.value) + '&Body=' + document.mailer.zadanie.value); 
 } 
 </SCRIPT>
