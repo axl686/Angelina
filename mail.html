@@ -1,0 +1,46 @@
+<FORM NAME="mailer" METHOD="post" ENCTYPE="text/plain"
+onSubmit="(document.mailer.action += mailtoandSubject)">
+Email:<br>
+<INPUT TYPE="text" NAME="email" size="24"
+onChange="msg (this.form)"><br>
+Тема или название работы:<br>
+<INPUT TYPE="text" NAME="Subject" size="24"
+onChange="msg (this.form)"><br>
+Текст задания:<br>
+<TEXTAREA NAME="zadanie" COLS="40" ROWS="6"
+onChange="msg (this.form)">
+</TEXTAREA>
+<br>
+<INPUT TYPE="submit" VALUE="Отправить"
+ONCLICK="return checkIt ()">
+<INPUT TYPE="reset" VALUE="Сброс">
+</FORM>
+
+<SCRIPT LANGUAGE="JavaScript">
+function checkIt () {
+    if (document.forms.mailer.email.value!= "") {
+    } else {
+        alert ("Пожалуйста, введите свой Email.");
+        document.forms.mailer.email.focus ();
+        return false;
+    }
+    if (document.forms.mailer.Subject.value!= "") {
+    } else {
+        alert ("Пожалуйста, введите название или тему работы:");
+        document.forms.mailer.Subject.focus ();
+        return false;
+    }
+    if (document.forms.mailer.zadanie.value!= "") {
+        return true;
+    } else {
+        alert ("Пожалуйста, напишите задание работы.");
+        document.forms.mailer.zadanie.focus ();
+        return false;
+    }
+}
+
+function msg () {
+    document.mailer.action = "mailto:" + "Leshij-2005@yandex.ru"
+    mailtoandSubject = (('?Subject=' + document.mailer.Subject.value) + '&Body=' + document.mailer.zadanie.value);
+}
+</SCRIPT>

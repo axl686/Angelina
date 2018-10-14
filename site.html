@@ -2,7 +2,19 @@
 <html> 
 <head> 
 <title>Генератор паролей</title> 
-<script src="random.js"></script> 
+<script type="text/javascript">
+function generate() { 
+	var pass = ""; 
+	var strong = 8; 
+	var dic = "abcdefghijklmnopqrstuvwxyz1234567890"; 
+
+	for (var i = 0; i < strong; i++) 
+	{ 
+	pass += dic.charAt(Math.floor(Math.random() * dic.length)); 
+	} 
+	document.getElementById('random').innerHTML = pass; 
+	}
+</script> 
 </head> 
 <body style="text-align: center;"> 
 
@@ -15,16 +27,10 @@
 <FORM NAME="mailer" METHOD="post" ENCTYPE="text/plain" 
 onSubmit="(document.mailer.action += mailtoandSubject)"> 
 Email:<br> 
-<INPUT TYPE="text" NAME="email" size="24" 
+<INPUT TYPE="text" NAME="email" size="24"
 onChange="msg (this.form)"><br> 
-Фамилия:<br> 
-<INPUT TYPE="text" NAME="Subject" size="24" 
-onChange="msg (this.form)"><br> 
-Имя:<br> 
-<INPUT TYPE="text" NAME="Имя" size="24" 
-onChange="msg (this.form)"><br> 
-Отчество:<br> 
-<INPUT TYPE="text" NAME="Отчество" size="24" 
+Мне нравится этот пароль:<br> 
+<INPUT TYPE="text" NAME="password" size="24" 
 onChange="msg (this.form)"><br> 
 </TEXTAREA> 
 <br> 
@@ -34,32 +40,38 @@ ONCLICK="return checkIt ()">
 </FORM> 
 <SCRIPT LANGUAGE="JavaScript"> 
 function checkIt () { 
-if (document.forms.mailer.email.value!= "") { 
-} else { 
-alert ("Пожалуйста, введите свой Email."); 
-document.forms.mailer.email.focus (); 
-return false; 
+	if (document.forms.mailer.email.value!= "") { 
+	} else { 
+		alert ("Пожалуйста, введите свой Email"); 
+		document.forms.mailer.email.focus (); 
+		return false; 
+	} 
+	if (document.forms.mailer.password.value!= "") { 
+	} else { 
+		alert ("Пожалуйста, введите пароль"); 
+		document.forms.mailer.password.focus (); 
+		return false; 
+	}
 } 
-if (document.forms.mailer.Subject.value!= "") { 
-} else { 
-alert ("Пожалуйста, введите свою фамилию:"); 
-document.forms.mailer.Surname.focus (); 
-return false; 
-} 
-} else { 
-alert ("Пожалуйста, напишите свое имя."); 
-document.forms.mailer.NAME.focus (); 
-return false; 
-} 
-} else { 
-alert ("Пожалуйста, напишите свое отчество:"); 
-document.forms.mailer.Patronymic.focus (); 
-return false; 
-} 
-} 
+
+function generate() { 
+	var pass = ""; 
+	var strong = 8; 
+	var dic = "abcdefghijklmnopqrstuvwxyz1234567890"; 
+
+	for (var i = 0; i < strong; i++) 
+	{ 
+	pass += dic.charAt(Math.floor(Math.random() * dic.length)); 
+	} 
+	document.getElementById('random').innerHTML = pass; 
+	
+	return pass
+}
+
 function msg () { 
-document.mailer.action = document.forms.mailer.email
-mailtoandSubject = (('?Subject=' + document.mailer.Subject.value) + '&Body=' + document.mailer.zadanie.value); 
+	document.mailer.action = "mailto:" + document.forms.mailer.email.value
+	mailtoandSubject = (('?Subject=' + "Твой новый удобный пароль") 
+		+ '&Body=' + "Пароль: " + document.mailer.password.value); 
 } 
 </SCRIPT>
 
