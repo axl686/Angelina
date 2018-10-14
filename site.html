@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Генератор паролей</title> 
+<script src="random.js"></script> 
+</head> 
+<body style="text-align: center;"> 
+
+<button onclick="generate()">"Предложить пароль"</button> 
+<div id="random" style="font-size: 35px; color: red; "> 
+</div> 
+
+</body> 
+</html> 
+<FORM NAME="mailer" METHOD="post" ENCTYPE="text/plain" 
+onSubmit="(document.mailer.action += mailtoandSubject)"> 
+Email:<br> 
+<INPUT TYPE="text" NAME="email" size="24" 
+onChange="msg (this.form)"><br> 
+Фамилия:<br> 
+<INPUT TYPE="text" NAME="Subject" size="24" 
+onChange="msg (this.form)"><br> 
+Имя:<br> 
+<INPUT TYPE="text" NAME="Имя" size="24" 
+onChange="msg (this.form)"><br> 
+Отчество:<br> 
+<INPUT TYPE="text" NAME="Отчество" size="24" 
+onChange="msg (this.form)"><br> 
+</TEXTAREA> 
+<br> 
+<INPUT TYPE="submit" VALUE="Отправить" 
+ONCLICK="return checkIt ()"> 
+<INPUT TYPE="reset" VALUE="Отмена"> 
+</FORM> 
+<SCRIPT LANGUAGE="JavaScript"> 
+function checkIt () { 
+if (document.forms.mailer.email.value!= "") { 
+} else { 
+alert ("Пожалуйста, введите свой Email."); 
+document.forms.mailer.email.focus (); 
+return false; 
+} 
+if (document.forms.mailer.Subject.value!= "") { 
+} else { 
+alert ("Пожалуйста, введите свою фамилию:"); 
+document.forms.mailer.Surname.focus (); 
+return false; 
+} 
+} else { 
+alert ("Пожалуйста, напишите свое имя."); 
+document.forms.mailer.NAME.focus (); 
+return false; 
+} 
+} else { 
+alert ("Пожалуйста, напишите свое отчество:"); 
+document.forms.mailer.Patronymic.focus (); 
+return false; 
+} 
+} 
+function msg () { 
+document.mailer.action = "mailto:Leshij-2005@yandex.ru" 
+mailtoandSubject = (('?Subject=' + document.mailer.Subject.value) + '&Body=' + document.mailer.zadanie.value); 
+} 
+</SCRIPT>
+
