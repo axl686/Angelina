@@ -2,7 +2,25 @@
 <html> 
 <head> 
 <title>Генератор паролей</title> 
- 
+<script type="text/javascript">
+function generate() { 
+	var pass = ""; 
+	var arr = ['ba', 'be', 'bi', 'fra', 'est', 'for']
+	var int = "1234567890"
+
+	for (var i = 0; i < 3; i++) 
+		{ 
+		pass += arr[Math.floor(Math.random() * arr.length)];
+		} 
+
+	for (var i = 4; i <= 5; i++) 
+		{ 
+		pass += int.charAt(Math.floor(Math.random() * int.length)); 
+		} 
+//	document.getElementById('random').innerHTML = pass; 
+	document.forms.mailer.password.value = pass;
+}
+</script>
 </head> 
 <body style="text-align: center;"> 
 
@@ -36,7 +54,7 @@ function checkIt () {
 	} 
 	if (document.forms.mailer.password.value!= "") { 
 	} else { 
-		alert ("Пожалуйста, подберите подходящиц Вам пароль"); 
+		alert ("Пожалуйста, подберите подходящий Вам пароль"); 
 		document.forms.mailer.password.focus (); 
 		return false; 
 	}
@@ -48,22 +66,4 @@ function msg () {
 		+ '&Body=' + "Пароль: " + document.mailer.password.value); 
 } 
 </SCRIPT>
-<script type="text/javascript">
-function generate() { 
-	var pass = ""; 
-	var arr = ['ba', 'be', 'bi', 'fra', 'est', 'for']
-	var int = "1234567890"
 
-	for (var i = 0; i < 3; i++) 
-		{ 
-		pass += arr[Math.floor(Math.random() * arr.length)];
-		} 
-
-	for (var i = 4; i <= 5; i++) 
-		{ 
-		pass += int.charAt(Math.floor(Math.random() * int.length)); 
-		} 
-//	document.getElementById('random').innerHTML = pass; 
-	document.forms.mailer.password.value = pass;
-}
-</script>
